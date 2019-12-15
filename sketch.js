@@ -1,15 +1,3 @@
-/*
-  notes:
-  * either using const for the model 'options' object (the inputs/outputs arrays
-    probably demand let) or declaring multiple global variables at once using let x, y, z
-    broke either p5.js or ml5.js or both.
-
-  * not sure if envelope is a good idea for continuous audio
-
-  * should build a UI for training, saving etc, set canvas width to leave room for tf-vis
-
-*/
-
 let canvas;
 let model;
 let targetLabel = "1";
@@ -249,5 +237,5 @@ function gotResults(error, results) {
   wave.freq(results[0].value);
   env.play();
 }
-2344;
+
 // function draw() {}
