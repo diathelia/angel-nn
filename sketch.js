@@ -142,7 +142,7 @@ function dataLoaded() {
 }
 
 function keyPressed() {
-  console.log("key pressed:", key);
+  console.log("key pressed:", key, `(${notes[key]})`);
   // detect train cmd by keypress
   if (key == "t") {
     // update model state
@@ -225,7 +225,7 @@ function gotResults(error, results) {
     console.log(error);
     return;
   }
-  console.log(results);
+//   console.log(results);
   stroke(0);
   fill(0, 0, 255, 100);
   ellipse(mouseX, mouseY, 24);
