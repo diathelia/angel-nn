@@ -88,7 +88,7 @@ function setup() {
   background(mariahImg);
 
   // use mouseMoved event to run custom mouse_Moved function
-  // canvas.mouseMoved(mouse_Moved);
+  canvas.mouseMoved(mouse_Moved);
 
   // configure sounds
   env = new p5.Envelope();
@@ -183,8 +183,8 @@ function finishedTraining() {
   state = "prediction";
 }
 
-function mousePressed() {
-  // function mouse_Moved() {
+// function mousePressed() {
+  function mouse_Moved() {
   // input object for adding to model
   let inputs = {
     x: mouseX,
