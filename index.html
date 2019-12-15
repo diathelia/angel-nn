@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- p5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script> -->
+    <!-- ml5 -->
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>ml5.js test</title>
+  </head>
+  <body>
+    <div id="grid-parent">
+      <button type="button" id="save-data">Save Data</button>
+      <button type="button" id="start-training">Start Training</button>
+      <button type="button" id="save-model">Save Model</button>
+    </div>
+
+    <!-- parent container for p5.js canvas -->
+    <div id="sketch-parent"></div>
+
+    <!-- p5.js and ml5.js sketch -->
+    <script src="sketch.js"></script>
+  </body>
+</html>
