@@ -66,6 +66,7 @@ function onError(res) {
 function setup() {
   // suspend Audio Context to stop error messages
   // (this suspend/start approach helps Chrome, isn't helpful for Firefox)
+  // could simply simulate a mouse click on canvas instead?
   getAudioContext()
     .suspend()
     .then(() => {
@@ -116,13 +117,13 @@ function setup() {
   // model.loadData("mariah-notes.json", dataLoaded);
 }
 
-function windowResized() {
-  // update parent width / height
-  parentWidth = document.querySelector("#sketch-parent").offsetWidth;
-  parentHeight = document.querySelector("#sketch-parent").offsetHeight;
-  resizeCanvas(parentWidth, parentHeight);
-  background(mariahImg);
-}
+// function windowResized() {
+//   // update parent width / height
+//   parentWidth = document.querySelector("#sketch-parent").offsetWidth;
+//   parentHeight = document.querySelector("#sketch-parent").offsetHeight;
+//   resizeCanvas(parentWidth, parentHeight);
+//   background(mariahImg);
+// }
 
 // data loaded callback
 function dataLoaded() {
