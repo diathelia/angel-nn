@@ -114,7 +114,7 @@ function setup() {
   // create configured model
   model = ml5.neuralNetwork(options);
   // load saved data
-  // model.loadData("mariah-notes.json", dataLoaded);
+  model.loadData("mariah-notes.json", dataLoaded);
 }
 
 // function windowResized() {
