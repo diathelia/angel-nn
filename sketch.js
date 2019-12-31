@@ -66,7 +66,6 @@ function onError(res) {
 function setup() {
   // suspend Audio Context to stop error messages
   // (this suspend/start approach helps Chrome, isn't helpful for Firefox)
-  // could simply simulate a mouse click on canvas instead?
   getAudioContext()
     .suspend()
     .then(() => {
@@ -77,11 +76,9 @@ function setup() {
     console.log("audioCtx started");
   });
 
-  // get parent width / height
-  parentWidth = document.querySelector("#sketch-parent").offsetWidth;
-  parentHeight = document.querySelector("#sketch-parent").offsetHeight;
+  dynamicSquareCanvas();
 
-  // set canvas to parentWidth and static height
+  // set canvas to parentWidth and parentHeight
   canvas = createCanvas(parentWidth, parentHeight);
 
   canvas.parent("sketch-parent");
@@ -89,7 +86,7 @@ function setup() {
   background(mariahImg);
 
   // use mouseMoved event to run custom mouse_Moved function
-  canvas.mouseMoved(mouse_Moved);
+  // canvas.mouseMoved(mouse_Moved);
 
   // configure sounds
   env = new p5.Envelope();
@@ -114,16 +111,32 @@ function setup() {
   // create configured model
   model = ml5.neuralNetwork(options);
   // load saved data
-  model.loadData("mariah-notes.json", dataLoaded);
+  // model.loadData("mariah-notes.json", dataLoaded);
 }
 
-// function windowResized() {
-//   // update parent width / height
-//   parentWidth = document.querySelector("#sketch-parent").offsetWidth;
-//   parentHeight = document.querySelector("#sketch-parent").offsetHeight;
-//   resizeCanvas(parentWidth, parentHeight);
-//   background(mariahImg);
-// }
+function dynamicSquareCanvas () {
+    // get parent width / height
+    parentWidth = document.querySelector("#sketch-parent").offsetWidth;
+    parentHeight = document.querySelector("#sketch-parent").offsetHeight;
+  
+    // square the canvas
+    if (parentWidth > parentHeight) {
+      parentWidth = parentHeight;
+    } else if (parentWidth < parentHeight) {
+      parentHeight = parentWidth;
+    } else {
+      console.log('canvas already square');
+    }
+}
+
+function windowResized() {
+  // update parent width / height
+  dynamicSquareCanvas();
+  // resize canvas
+  resizeCanvas(parentWidth, parentHeight);
+  // resize background image
+  background(mariahImg);
+}
 
 // data loaded callback
 function dataLoaded() {
@@ -143,7 +156,7 @@ function dataLoaded() {
 }
 
 function keyPressed() {
-  console.log("key pressed:", key, `(${notes[key]})`);
+  console.log("key pressed:", key);
   // detect train cmd by keypress
   if (key == "t") {
     // update model state
@@ -184,8 +197,8 @@ function finishedTraining() {
   state = "prediction";
 }
 
-// function mousePressed() {
-  function mouse_Moved() {
+function mousePressed() {
+  // function mouse_Moved() {
   // input object for adding to model
   let inputs = {
     x: mouseX,
@@ -226,7 +239,7 @@ function gotResults(error, results) {
     console.log(error);
     return;
   }
-//   console.log(results);
+  console.log(results);
   stroke(0);
   fill(0, 0, 255, 100);
   ellipse(mouseX, mouseY, 24);

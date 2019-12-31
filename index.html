@@ -14,11 +14,23 @@
     <title>ml5.js test</title>
   </head>
   <body>
-<!--     <div id="grid-parent">
-      <button type="button" id="save-data">Save Data</button>
-      <button type="button" id="start-training">Start Training</button>
-      <button type="button" id="save-model">Save Model</button>
-    </div> -->
+    <div class="guide">
+    <h3>Guide:</h3>
+    <p>1) Click anywhere on Mariah until you hear one of her whistle notes</p>
+    <p>2) Press any key between 1 and 9 to change whistle note</p>
+    <p>3) Click in different places on Mariah using different whistle notes to give angel-nn some training data</p>
+    <p>4) When you are ready, press the 't' key and wait for angel-nn to learn Mariah's notes</p>
+    <p>5) Now when you click on Mariah you don't need to select a 1-9 number, click anywhere, angel-nn will predict what note should play based on where you clicked the training data</p>
+    <br>
+    <h4>Notes:</h4>
+    <p>a)angel-nn currently only works on Chrome</p>
+    <p>The click-noises during training data are from an actual <a href="https://www.youtube.com/watch?v=2QUCaF5w_6A">Carey recording</a>. The predicted notes after training are generated using the p5.js sound library by matching frequencies</p>
+  </div>
+    <!-- <div id="grid-parent"> -->
+      <!-- <button type="button" id="save-data">Save Data</button> -->
+      <!-- <button type="button" id="start-training">Start Training</button> -->
+      <!-- <button type="button" id="save-model">Save Model</button> -->
+    <!-- </div> -->
 
     <!-- parent container for p5.js canvas -->
     <div id="sketch-parent"></div>

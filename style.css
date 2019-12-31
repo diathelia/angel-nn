@@ -11,6 +11,10 @@ body {
   height: 100vh;
 }
 
+div.guide {
+  margin-left: 0.5em;
+}
+
 div#grid-parent {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(2em, 1fr));
@@ -20,7 +24,7 @@ div#grid-parent {
 
 div#sketch-parent {
   width: calc(100vw - 2em);
-  height: calc(100vh - 6em);
+  height: calc(100vh - 16em);
   margin-left: 1em;
 }
 
